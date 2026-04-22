@@ -1,4 +1,3 @@
-package CS143.jtnguyen5;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;

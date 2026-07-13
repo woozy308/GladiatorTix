@@ -1,8 +1,30 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+/* import java.io.File;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.IOException; */
+
+
 public class Message {
+
+    LocalTime time = LocalTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+    String cleanTime = time.format(formatter);
 
     public void begin() {
         System.out.println("*~----------*|~|~|^|~|~|*----------~*");
         System.out.println("Welcome to the GladiatorTix System!");
+        System.out.println("Clock: "+ cleanTime);
+
+        /* try {
+            File welcome = new File("C:/Users/sunni/IdeaProjects/GladiatorTix/src/welcome.png");
+            BufferedImage welcomeImage = ImageIO.read(welcome);
+        } catch (IOException e) {
+            System.out.println("Image failed to load!");
+        } */
+
         System.out.println();
         System.out.println("What can I do for you today?");
         System.out.println();

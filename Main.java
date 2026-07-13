@@ -45,12 +45,11 @@ public class Main {
                         System.out.println("What is the reason for this ticket?");
                         myWriter.write("Reason for ticket: ");
                         myWriter.write(keyboard.next());
-                        myWriter.write("");
 
                         System.out.println("Please elaborate on the reasoning.");
                         myWriter.write("Additional elaboration: ");
                         myWriter.write(keyboard.next());
-                        myWriter.write("");
+                        myWriter.write("/n");
 
                         System.out.println("Number of faults/errors?");
                         myWriter.write("Fault/Error count: ");
@@ -75,24 +74,56 @@ public class Main {
                 }
             }
 
-            else if (selection == 2) { // Ticket reading/opening //
+            // Reading + Viewing Tickets //
+            else if (selection == 2) {
 
-                int selectedTicket;
-                System.out.println("Which ticket would you like to open? Please insert the three digits now.");
-                selectedTicket = keyboard.nextInt();
+                System.out.println("Would you like to check for existing tickets, or do you already know which ticket you would like to open?");
 
-                try {
-                    File ticketRead = new File("TICKET #" + selectedTicket + ".txt");
-                    Scanner myReader = new Scanner(ticketRead);
-                    while (myReader.hasNextLine()) {
-                        String data = myReader.nextLine();
-                        System.out.println(data);
-                        System.out.println();
+                int checker;
+                System.out.println("1- View all existing tickets");
+                System.out.println("2- I know which ticket to open");
+                checker = keyboard.nextInt();
+
+                if (checker == 1) { // you want to check all //
+                    System.out.println("Checking for all existing tickets now...");
+                    for (int i = 0; i < 1000; i++) {
+                        try {
+                            File ticketCheck = new File("TICKET #" + i + ".txt");
+                            Scanner myReader = new Scanner(ticketCheck);
+                            if (myReader.hasNextLine()) {
+                                System.out.println("TICKET #" + i + ".txt is an existing ticket.");
+                            }
+                            myReader.close();
+                        } catch (FileNotFoundException e) {
+                            System.out.println("TICKET # " + i + ".txt does not exist.");
+                            // e.printStackTrace(); //
+                        }
                     }
-                    myReader.close();
-                } catch (FileNotFoundException e) {
-                    System.out.println("The selected ticket, 'TICKET # " + selectedTicket + "', does not exist.");
-                    e.printStackTrace();
+                }
+
+                else if (checker == 2) { // you already know //
+                    int selectedTicket;
+                    System.out.println("Which ticket would you like to open? Please insert the three digits now.");
+                    selectedTicket = keyboard.nextInt();
+
+                    try {
+                        File ticketRead = new File("TICKET # " + selectedTicket + ".txt");
+                        Scanner myReader = new Scanner(ticketRead);
+                        while (myReader.hasNextLine()) {
+                            String data = myReader.nextLine();
+                            System.out.println();
+                            System.out.println(data);
+                            System.out.println();
+                        }
+                        myReader.close();
+                    } catch (FileNotFoundException e) {
+                        System.out.println("The selected ticket, 'TICKET # " + selectedTicket + "', does not exist.");
+                        // e.printStackTrace(); //
+                    }
+                }
+
+                else {
+                    System.out.println("Sorry, the number input is not an option. Returning to menu... ");
                 }
 
             }
@@ -179,7 +210,7 @@ public class Main {
 
                     } catch (FileNotFoundException e) {
                         System.out.println("error- uh oh");
-                        e.printStackTrace();
+                        // e.printStackTrace(); //
                     }
                 }
                 else {

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Random;
 import java.io.FileWriter;
 import java.io.FileNotFoundException;
+import java.io.BufferedWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -22,7 +23,8 @@ public class Main {
 
             selection = keyboard.nextInt();
 
-            if (selection == 1) { // Writing a new ticket //
+            // 1- Creating a new ticket //
+            if (selection == 1) {
                 try {
 
                     Random rand = new Random();
@@ -74,7 +76,7 @@ public class Main {
                 }
             }
 
-            // Reading + Viewing Tickets //
+            // 2- Reading + Viewing Tickets //
             else if (selection == 2) {
 
                 System.out.println("Would you like to check for existing tickets, or do you already know which ticket you would like to open?");
@@ -95,7 +97,7 @@ public class Main {
                             }
                             myReader.close();
                         } catch (FileNotFoundException e) {
-                            System.out.println("TICKET # " + i + ".txt does not exist.");
+                            System.out.println("TICKET #" + i + ".txt does not exist.");
                             // e.printStackTrace(); //
                         }
                     }
@@ -107,7 +109,7 @@ public class Main {
                     selectedTicket = keyboard.nextInt();
 
                     try {
-                        File ticketRead = new File("TICKET # " + selectedTicket + ".txt");
+                        File ticketRead = new File("TICKET #" + selectedTicket + ".txt");
                         Scanner myReader = new Scanner(ticketRead);
                         while (myReader.hasNextLine()) {
                             String data = myReader.nextLine();
@@ -117,7 +119,7 @@ public class Main {
                         }
                         myReader.close();
                     } catch (FileNotFoundException e) {
-                        System.out.println("The selected ticket, 'TICKET # " + selectedTicket + "', does not exist.");
+                        System.out.println("The selected ticket, 'TICKET #" + selectedTicket + "', does not exist.");
                         // e.printStackTrace(); //
                     }
                 }
@@ -128,7 +130,8 @@ public class Main {
 
             }
 
-            else if (selection == 3) { // Ticket Deletion //
+            // 3- Deleting tickets //
+            else if (selection == 3) {
 
                 int ticketToDelete;
                 System.out.println("Which ticket would you like to delete? Please insert the three digits now.");
@@ -145,7 +148,8 @@ public class Main {
 
             }
 
-            else if (selection == 4) { // Vault key //
+            // 4- Vault key / management
+            else if (selection == 4) {
                 int attemptKey;
                 System.out.println("Please insert the management vault key now.");
                 attemptKey = keyboard.nextInt();
@@ -220,8 +224,9 @@ public class Main {
                 }
             }
 
+            // 5- Closes the machine //
             else if (selection == 5) { // end usage, does NOT enter the message loop //
-                inUse = false; // turns off //
+                inUse = false;
             }
 
             System.out.println("What else can I do for you?");

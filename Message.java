@@ -18,12 +18,14 @@ public class Message {
         System.out.println("Welcome to the GladiatorTix System!");
         System.out.println("Clock: "+ cleanTime);
 
-        /* try {
+        /*
+        try {
             File welcome = new File("C:/Users/sunni/IdeaProjects/GladiatorTix/src/welcome.png");
             BufferedImage welcomeImage = ImageIO.read(welcome);
         } catch (IOException e) {
             System.out.println("Image failed to load!");
-        } */
+        }
+        */
 
         System.out.println();
         System.out.println("What can I do for you today?");

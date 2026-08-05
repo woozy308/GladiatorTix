@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.IOException; */
 
-
 public class Message {
 
     Scanner keyboard = new Scanner(System.in);

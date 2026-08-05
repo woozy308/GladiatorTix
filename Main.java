@@ -79,14 +79,14 @@ public class Main {
             // 2- Reading + Viewing Tickets //
             else if (selection == 2) {
 
-                System.out.println("Would you like to check for existing tickets, or do you already know which ticket you would like to open?");
+                System.out.println("Would you like to view what tickets exist, or do you already know which ticket to open?");
 
                 int checker;
                 System.out.println("1- View all existing tickets");
                 System.out.println("2- I know which ticket to open");
                 checker = keyboard.nextInt();
 
-                if (checker == 1) { // you want to check all //
+                if (checker == 1) { // Checking all existing //
                     System.out.println("Checking for all existing tickets now...");
                     for (int i = 0; i < 1000; i++) {
                         try {
@@ -97,31 +97,15 @@ public class Main {
                             }
                             myReader.close();
                         } catch (FileNotFoundException e) {
-                            System.out.println("TICKET #" + i + ".txt does not exist.");
+                            // System.out.println("TICKET #" + i + ".txt does not exist."); -Removed for less clutter + simplicity //
                             // e.printStackTrace(); //
                         }
                     }
+                    user.ticketReader();
                 }
 
-                else if (checker == 2) { // you already know //
-                    int selectedTicket;
-                    System.out.println("Which ticket would you like to open? Please insert the three digits now.");
-                    selectedTicket = keyboard.nextInt();
-
-                    try {
-                        File ticketRead = new File("TICKET #" + selectedTicket + ".txt");
-                        Scanner myReader = new Scanner(ticketRead);
-                        while (myReader.hasNextLine()) {
-                            String data = myReader.nextLine();
-                            System.out.println();
-                            System.out.println(data);
-                            System.out.println();
-                        }
-                        myReader.close();
-                    } catch (FileNotFoundException e) {
-                        System.out.println("The selected ticket, 'TICKET #" + selectedTicket + "', does not exist.");
-                        // e.printStackTrace(); //
-                    }
+                else if (checker == 2) { // Outcome of already knowing //
+                    user.ticketReader();
                 }
 
                 else {

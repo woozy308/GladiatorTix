@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        // Ticket machine logger //
-
         Scanner keyboard = new Scanner(System.in);
         boolean inUse = true;
         Message user = new Message();

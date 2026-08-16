@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        // Ticket machine logger //
+
         Scanner keyboard = new Scanner(System.in);
         boolean inUse = true;
         Message user = new Message();
@@ -45,21 +47,22 @@ public class Main {
                         System.out.println("What is the reason for this ticket?");
                         myWriter.write("Reason for ticket: ");
                         myWriter.write(keyboard.next());
+                        myWriter.write("\n");
 
                         System.out.println("Please elaborate on the reasoning.");
                         myWriter.write("Additional elaboration: ");
                         myWriter.write(keyboard.next());
-                        myWriter.write("/n");
+                        myWriter.write("\n");
 
                         System.out.println("Number of faults/errors?");
                         myWriter.write("Fault/Error count: ");
                         myWriter.write(keyboard.next());
-                        myWriter.write("");
+                        myWriter.write("\n");
 
                         System.out.println("Who is writing this?");
                         myWriter.write("Ticket logger: ");
                         myWriter.write(keyboard.next());
-                        myWriter.write("");
+                        myWriter.write("\n");
 
                         myWriter.close();
                     } catch (IOException e) {

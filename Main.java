@@ -36,7 +36,7 @@ public class Main {
                         System.out.println("Ticket successfully opened: " + ticket.getName());
                     }
                     else {
-                        System.out.println("Error: We apologize, but no tickets can be printed at this time.");
+                        System.out.println("Error: Ticket was not successfully created.");
                         inUse = false; // emergency end to the machine //
                     }
 
